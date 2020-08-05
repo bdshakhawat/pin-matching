@@ -6,6 +6,7 @@
     <title>Pin Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
@@ -23,23 +24,23 @@
                         <div class="calc-body">
                             <div class="calc-button-row">
                               <div class="button" onclick="document.getElementById('inputValue').value += '7'">7</div>
-                              <div class="button">8</div>
-                              <div class="button">9</div>
+                              <div class="button"onclick="document.getElementById('inputValue').value += '8'">8</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '9'">9</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button">4</div>
-                              <div class="button">5</div>
-                              <div class="button">6</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '4'">4</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '5'">5</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '6'">6</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button">1</div>
-                              <div class="button">2</div>
-                              <div class="button">3</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '1'">1</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '2'">2</div>
+                              <div class="button" onclick="document.getElementById('inputValue').value += '3'">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" onclick="oneRemove()"><</div>
-                                <div class="button">0</div>
-                                <div class="button" onclick="remove()">C</div>
+                                <div class="button" onclick="singleRemove()"><</div>
+                                <div class="button" onclick="document.getElementById('inputValue').value += '0'">0</div>
+                                <div class="button" onclick="allRemove()">C</div>
                             </div>
                             <div>
                                 <button id="submit-button" type="submit" class="submit-btn">Submit</button>
@@ -54,41 +55,7 @@
             <p id="matched"  class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
-    <script>
-        document.getElementById('notification-alert').style.visibility = "hidden";
-        const randomBtn = document.getElementById('number-generator');
-                randomBtn.addEventListener('click', function(){
-                    const random = document.getElementById('randomValue').value 
-                    =(Math.round(1000 + Math.random() * 9000));
-                })
-        const submitBtn = document.getElementById('submit-button');
-        submitBtn.addEventListener('click', function () {
-                    const randomNum = document.getElementById('randomValue').value;
-                    const inputNum = document.getElementById('inputValue').value;
-                    if (randomNum === inputNum) {
-                        document.getElementById("matched").style.visibility = "visible";
-                    }
-                    else
-                        document.getElementById("not-matched").style.visibility = "visible";
-
-
-                }
-)  
-                function remove() {
-                    document.getElementById("inputValue").value = " ";
-                }
-
-                function oneRemove() {
-
-                    const str = document.getElementById('inputValue').value;
-                    document.getElementById("inputValue").value = str.slice(0, -1);
-                }
-                
-                    
-                
-
-
-
-    </script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
